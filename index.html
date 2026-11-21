@@ -1346,6 +1346,16 @@
       margin: 0;
     }
 
+    .ty-parents-prelude {
+      font-family: 'Cinzel', serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--gold-dark);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
     .ty-parents-line {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 11.5px;
@@ -2442,7 +2452,7 @@
               <div class="ty-english-block">
                 <div class="siblings-invite-card">
                   <div class="siblings-prelude">
-                    With Affectionate Compliments &amp; Warm Invitation
+                    With Affectionate Compliments:
                   </div>
                   <div class="siblings-names-list">
                     <div class="sibling-item">K. Akash</div>
@@ -2455,10 +2465,11 @@
                 </div>
 
                 <p class="ty-heartfelt">
-                  “Your gracious presence, warm prayers, and hearty blessings are the greatest gifts as our family
+                  “Your gracious presence, warm prayers, and hearty blessings are our greatest joy as our family
                   celebrates this sacred union and begins an eternal journey of togetherness.”
                 </p>
                 <div class="ty-parents">
+                  <div class="ty-parents-prelude">Warmly Awaiting Your Presence:</div>
                   <div class="ty-parents-line">Mr. G. Kandavel &amp; Mrs. K. Vasanthi</div>
                   <div class="ty-parents-line">Mr. G. Kumaravel &amp; Mrs. K. Bharathi &amp; Family</div>
                 </div>
@@ -2651,12 +2662,12 @@
             bookContainer.className = 'book-container mode-inside';
             leafCover.classList.add('is-turned');
             leafRight.style.display = 'block';
-            if (hintLabel) hintLabel.textContent = '◂ Tap left to close · Tap right for Thank You ▸';
+            if (hintLabel) hintLabel.textContent = '◂ Previous · Next ▸';
           } else if (currentState === 'thankyou') {
             bookContainer.className = 'book-container mode-thankyou';
             leafCover.classList.remove('is-turned');
             leafRight.style.display = 'block';
-            if (hintLabel) hintLabel.textContent = '◂ Tap left to return to invitation';
+            if (hintLabel) hintLabel.textContent = '◂ Tap left to return ▸';
           }
         } else {
           // Mobile mode
@@ -2667,13 +2678,13 @@
             if (hintLabel) hintLabel.textContent = '◂ Tap right to open invitation ▸';
           } else if (currentState === 'caricature' || (currentState === 'inside' && mobile)) {
             bookContainer.classList.add('mobile-show-caricature');
-            if (hintLabel) hintLabel.textContent = '◂ Couple Blessing · Next: Events ▸';
+            if (hintLabel) hintLabel.textContent = '◂ Previous · Next ▸';
           } else if (currentState === 'events') {
             bookContainer.classList.add('mobile-show-events');
-            if (hintLabel) hintLabel.textContent = '◂ Events & Venues · Next: Thank You ▸';
+            if (hintLabel) hintLabel.textContent = '◂ Previous · Next ▸';
           } else if (currentState === 'thankyou') {
             bookContainer.classList.add('mobile-show-thankyou');
-            if (hintLabel) hintLabel.textContent = '◂ Thank You & Directions · Swipe right to return';
+            if (hintLabel) hintLabel.textContent = '◂ Tap left to return ▸';
           }
         }
 
