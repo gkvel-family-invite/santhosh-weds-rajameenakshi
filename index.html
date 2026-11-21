@@ -1087,6 +1087,27 @@
       background: var(--gold-primary);
     }
 
+    .invocation-english {
+      margin-top: 1px;
+      font-size: 11.5px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .invoc-tamil {
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
+    }
+
+    .invoc-sub {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #5C2D18;
+      margin-top: 1px;
+    }
+
     .side-by-side-wrap {
       display: flex;
       align-items: stretch;
@@ -1593,11 +1614,11 @@
         touch-action: pan-y pinch-zoom;
       }
 
-      /* Natural, authentic card proportions on mobile — no vertical elongation */
+      /* Natural, authentic card proportions on mobile — no vertical elongation, fits all screens */
       .book-container {
         width: min(92vw, 420px) !important;
-        height: min(calc(100dvh - 60px), calc(min(92vw, 420px) * 1.58)) !important;
-        max-height: 610px !important;
+        height: min(calc(100dvh - 52px), calc(min(92vw, 420px) * 1.72), 650px) !important;
+        max-height: 650px !important;
       }
 
       .book-leaf {
@@ -1654,216 +1675,277 @@
         display: none !important;
       }
 
-      /* Mobile Cover (Page 1): Balanced spacing without drifting upward */
+      /* Mobile Cover (Page 1): Harmonious balanced spacing without drifting upward */
       .cover-inner {
-        padding: clamp(44px, 6.8vh, 52px) 16px 12px 16px;
-        justify-content: space-between;
+        padding: clamp(38px, 6vh, 48px) 16px 14px 16px !important;
+        justify-content: space-around !important;
+      }
+
+      .cover-top-section {
+        margin-bottom: 2px !important;
       }
 
       .cover-mid-section {
-        margin-top: 4px;
+        margin-top: 2px !important;
+      }
+
+      .cover-couple-wrap {
+        margin: 2px 0 0 0 !important;
       }
 
       .cover-name {
-        font-size: 16px;
+        font-size: 16px !important;
       }
 
       .main-wedding-title {
-        font-size: 13.5px;
+        font-size: 13.5px !important;
       }
 
       .cover-dates-direct {
-        max-width: 300px;
-        margin-top: 4px;
-        padding: 5px 8px;
-        gap: 2px;
+        max-width: 300px !important;
+        margin-top: 3px !important;
+        padding: 5px 8px !important;
+        gap: 2px !important;
       }
 
       .date-val {
-        font-size: 10.5px;
+        font-size: 10.5px !important;
       }
 
       .cover-date-sub {
-        font-size: 9.5px;
-        line-height: 1.2;
+        font-size: 9.5px !important;
+        line-height: 1.2 !important;
+      }
+
+      /* Mobile Page 2 (Caricature & Blessing): Centered and intimate */
+      .caricature-page .page-inner {
+        padding: 12px 14px !important;
+        justify-content: center !important;
+        gap: 12px !important;
       }
 
       .caricature-frame {
-        height: 220px;
-        width: 220px;
+        height: min(230px, 34vh) !important;
+        width: min(230px, 34vh) !important;
       }
 
-      /* Mobile Page 2 (Events & Lineage): Fits 100% without scrolling */
+      .quote-block {
+        margin-top: 2px !important;
+      }
+
+      .quote-english {
+        font-size: 13.5px !important;
+        line-height: 1.35 !important;
+      }
+
+      .quote-tamil {
+        font-size: 11.5px !important;
+        line-height: 1.35 !important;
+        margin-top: 4px !important;
+      }
+
+      /* Mobile Page 3 (Events & Lineage): 100% Fits without scrolling or clipping */
       .leaf-right .face-front .page-inner {
-        padding: 8px 12px 6px 12px;
-        justify-content: space-evenly;
+        padding: 6px 10px 4px 10px !important;
+        justify-content: space-between !important;
       }
 
       .invocation-english {
-        font-size: 10px !important;
-        margin-top: 0 !important;
+        font-size: 9.5px !important;
+        margin: 0 !important;
+        line-height: 1.15 !important;
+      }
+
+      .invoc-tamil {
+        font-size: 9.5px !important;
+        letter-spacing: 0.3px !important;
+        line-height: 1.15 !important;
+      }
+
+      .invoc-sub {
+        font-size: 8px !important;
+        line-height: 1.15 !important;
+        margin-top: 0px !important;
       }
 
       .side-by-side-wrap {
-        flex-direction: column;
-        gap: 2px;
-        margin: 1px 0;
+        flex-direction: column !important;
+        gap: 2px !important;
+        margin: 1px 0 !important;
       }
 
       .side-col {
-        padding: 4px 8px;
-        border-radius: 6px;
+        padding: 3px 8px !important;
+        border-radius: 6px !important;
       }
 
       .col-title {
-        font-size: 12px;
+        font-size: 11.5px !important;
+        line-height: 1.15 !important;
       }
 
       .col-job {
-        font-size: 9px;
+        font-size: 8.5px !important;
+        line-height: 1.15 !important;
       }
 
       .col-parents {
-        font-size: 9px;
-        line-height: 1.2;
-        margin-top: 1px;
+        font-size: 8.5px !important;
+        line-height: 1.15 !important;
+        margin-top: 1px !important;
       }
 
       .col-grandparents {
-        font-size: 8px;
-        line-height: 1.15;
-        margin-top: 1px;
-        padding-top: 1px;
+        font-size: 7.8px !important;
+        line-height: 1.12 !important;
+        margin-top: 1px !important;
+        padding-top: 1px !important;
       }
 
       .lineage-weds-divider {
-        padding: 0;
+        padding: 0 !important;
+        margin: -1px 0 !important;
+        line-height: 1 !important;
       }
 
       .lineage-weds-text {
-        font-size: 16px;
+        font-size: 13px !important;
       }
 
       .venue-boundary {
-        padding: 4px 8px 3px 8px;
-        margin: 2px 0;
-        border-radius: 6px;
+        padding: 3px 8px 3px 8px !important;
+        margin: 2px 0 !important;
+        border-radius: 6px !important;
       }
 
       .boundary-legend {
-        font-size: 10.5px;
-        padding: 0 4px;
+        font-size: 10px !important;
+        padding: 0 4px !important;
+        line-height: 1 !important;
       }
 
       .ev-row {
-        margin-bottom: 1.5px;
+        margin-bottom: 1px !important;
       }
 
       .ev-badge {
-        font-size: 9px;
+        font-size: 8.5px !important;
+        line-height: 1.15 !important;
       }
 
       .ev-datetime {
-        font-size: 10px;
-        line-height: 1.15;
+        font-size: 9.5px !important;
+        line-height: 1.15 !important;
       }
 
       .ev-venue-name {
-        font-size: 9.5px;
-        margin-top: 1px;
+        font-size: 8.5px !important;
+        margin-top: 1px !important;
+        line-height: 1.15 !important;
       }
 
-      /* Mobile Page 3 (Thank You): Clean fit so Front Cover button is completely visible */
+      .ev-venue-name svg {
+        width: 10px !important;
+        height: 10px !important;
+        vertical-align: -1px !important;
+      }
+
+      /* Mobile Page 4 (Thank You): Clean fit so Front Cover button and all elements are completely visible */
       .thankyou-inner {
-        padding: 8px 12px 6px 12px;
-        gap: 4px;
-        justify-content: space-evenly;
+        padding: 6px 12px 6px 12px !important;
+        gap: 3px !important;
+        justify-content: space-between !important;
       }
 
       .namaste-box {
-        width: 38px;
-        height: 46px;
+        width: 34px !important;
+        height: 42px !important;
       }
 
       .siblings-invite-card {
-        padding: 4px 8px;
-        margin: 0 auto;
+        padding: 4px 8px !important;
+        margin: 0 auto !important;
       }
 
       .sibling-item {
-        font-size: 11.5px;
+        font-size: 11px !important;
+        line-height: 1.2 !important;
       }
 
       .siblings-prelude {
-        font-size: 8px;
+        font-size: 7.8px !important;
       }
 
       .siblings-co-invite {
-        font-size: 9.5px;
+        font-size: 9px !important;
       }
 
       .ty-heartfelt {
-        font-size: 10px;
-        line-height: 1.2;
-        padding: 0 2px;
-        margin: 1px 0;
+        font-size: 9.5px !important;
+        line-height: 1.2 !important;
+        padding: 0 4px !important;
+        margin: 1px 0 !important;
+      }
+
+      .ty-parents-prelude {
+        font-size: 8px !important;
+        margin-bottom: 1px !important;
       }
 
       .ty-parents-line {
-        font-size: 10px;
-        line-height: 1.2;
+        font-size: 9.5px !important;
+        line-height: 1.2 !important;
       }
 
       .scan-location-box {
-        padding: 5px 6px 4px 6px;
-        margin: 0 auto;
-        max-width: 290px;
+        padding: 4px 6px 3px 6px !important;
+        margin: 0 auto !important;
+        max-width: 290px !important;
       }
 
       .scan-header-line {
-        font-size: 8px;
-        top: -7px;
-        padding: 0 6px;
+        font-size: 7.8px !important;
+        top: -7px !important;
+        padding: 0 6px !important;
       }
 
       .scan-cards-row {
-        gap: 6px;
+        gap: 6px !important;
       }
 
       .venue-map-card {
-        width: 100px;
+        width: 95px !important;
       }
 
       .map-card-thumb {
-        width: 100px;
-        height: 40px;
+        width: 95px !important;
+        height: 38px !important;
       }
 
       .map-card-info {
-        padding: 2px 3px;
+        padding: 2px 3px !important;
       }
 
       .map-card-city {
-        font-size: 7.5px;
+        font-size: 7.5px !important;
       }
 
       .map-card-place {
-        font-size: 9px;
+        font-size: 8.5px !important;
       }
 
       .procession-box {
-        max-width: 290px;
-        margin: -4px auto 0 auto;
+        max-width: 280px !important;
+        margin: -2px auto 0 auto !important;
       }
 
       .procession-img {
-        max-height: 65px;
-        transform: scale(1);
+        max-height: 46px !important;
       }
 
       .btn-return {
-        padding: 4px 12px;
-        font-size: 8.5px;
+        padding: 4px 14px !important;
+        font-size: 9px !important;
       }
     }
   </style>
@@ -2313,10 +2395,9 @@
             <div class="spine-crease spine-left"></div>
 
             <div class="page-inner">
-              <div class="invocation-english"
-                style="margin-top: 1px; font-size: 11.5px; color: var(--gold-dark); font-weight: 700; line-height: 1.35; text-align: center;">
-                <div style="font-size: 11.5px; letter-spacing: 0.5px;">॥ திருவருள் துணை ॥</div>
-                <div style="font-size: 9.5px; font-weight: 600; color: #5C2D18; margin-top: 1px;">With the divine blessings of Almighty &amp; Family Elders</div>
+              <div class="invocation-english" id="eventsInvoc">
+                <div class="invoc-tamil">॥ திருவருள் துணை ॥</div>
+                <div class="invoc-sub">With the divine blessings of Almighty &amp; Family Elders</div>
               </div>
 
               <!-- Side-by-Side Groom & Bride Columns (Exact Invite Format) -->
