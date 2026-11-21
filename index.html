@@ -1548,8 +1548,30 @@
     }
 
     @media (max-width: 859px) {
+      html,
+      body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      .app-viewport {
+        overflow: visible !important;
+        min-height: 100dvh !important;
+        min-height: 100vh !important;
+        height: auto !important;
+      }
+
       .stage {
         padding: 12px 10px;
+        min-height: 100dvh;
+        min-height: 100vh;
+        height: auto;
+      }
+
+      .turn-zone {
+        touch-action: pan-y pinch-zoom;
       }
 
       /* Natural, authentic card proportions on mobile — no vertical elongation */
@@ -2220,7 +2242,7 @@
                 <p class="quote-tamil" id="quoteTamil">
                   “அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை பண்பும் பயனும் அது.”
                 </p>
-                <div class="mangalam-line">॥ மங்களம் உண்டாகட்டும் ॥</div>
+                <!-- <div class="mangalam-line">॥ மங்களம் உண்டாகட்டும் ॥</div> -->
               </div>
             </div>
           </div>
@@ -2775,15 +2797,39 @@
         }
       });
 
-      // Touch Swipes
+      // Touch Swipes & Pull-Down to Refresh on Mobile
       let tStartX = 0, tStartY = 0;
+      let pullStartY = 0, pullStartX = 0;
+
       window.addEventListener('touchstart', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
         tStartX = e.changedTouches[0].screenX;
         tStartY = e.changedTouches[0].screenY;
+        if (e.changedTouches[0].clientY < 140 && (window.scrollY || document.documentElement.scrollTop || 0) <= 5) {
+          pullStartY = e.changedTouches[0].clientY;
+          pullStartX = e.changedTouches[0].clientX;
+        } else {
+          pullStartY = 0;
+        }
       }, { passive: true });
+
       window.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
         const dx = e.changedTouches[0].screenX - tStartX;
         const dy = e.changedTouches[0].screenY - tStartY;
+
+        // Pull down from top edge to refresh
+        if (pullStartY > 0) {
+          const pullDownY = e.changedTouches[0].clientY - pullStartY;
+          const pullDownX = Math.abs(e.changedTouches[0].clientX - pullStartX);
+          if (pullDownY > 150 && pullDownX < 60) {
+            window.location.reload();
+            return;
+          }
+        }
+        pullStartY = 0;
+
+        // Horizontal swipe left/right to turn pages
         if (Math.abs(dx) > 35 && Math.abs(dx) > Math.abs(dy) * 1.4) {
           if (dx < 0) goNext(); // Swipe Left -> Next
           else goPrev();        // Swipe Right -> Prev
