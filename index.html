@@ -1603,6 +1603,7 @@
     }
 
     @media (max-width: 859px) {
+
       html,
       body {
         overflow-x: hidden !important;
@@ -1632,8 +1633,8 @@
       /* Natural, authentic card proportions on mobile — no vertical elongation, fits all screens */
       .book-container {
         width: min(92vw, 420px) !important;
-        height: min(calc(100dvh - 52px), calc(min(92vw, 420px) * 1.72), 650px) !important;
-        max-height: 650px !important;
+        height: min(calc(100dvh - 70px), 580px) !important;
+        max-height: 580px !important;
       }
 
       .book-leaf {
@@ -1690,22 +1691,23 @@
         display: none !important;
       }
 
-      /* Mobile Cover (Page 1): Harmonious balanced spacing without drifting upward */
+      /* Mobile Cover (Page 1): Natural, cohesive grouping without gaps */
       .cover-inner {
-        padding: clamp(38px, 6vh, 48px) 16px 14px 16px !important;
-        justify-content: space-around !important;
+        padding: clamp(34px, 5vh, 42px) 16px 12px 16px !important;
+        justify-content: center !important;
+        gap: 8px !important;
       }
 
       .cover-top-section {
-        margin-bottom: 2px !important;
+        margin: 0 !important;
       }
 
       .cover-mid-section {
-        margin-top: 2px !important;
+        margin: 0 !important;
       }
 
       .cover-couple-wrap {
-        margin: 2px 0 0 0 !important;
+        margin: 0 !important;
       }
 
       .cover-name {
@@ -1718,7 +1720,7 @@
 
       .cover-dates-direct {
         max-width: 300px !important;
-        margin-top: 3px !important;
+        margin: 0 !important;
         padding: 5px 8px !important;
         gap: 2px !important;
       }
@@ -1732,11 +1734,11 @@
         line-height: 1.2 !important;
       }
 
-      /* Mobile Page 2 (Caricature & Blessing): Centered and intimate */
+      /* Mobile Page 2 (Caricature & Blessing): Centered and cohesive */
       .caricature-page .page-inner {
         padding: 12px 14px !important;
         justify-content: center !important;
-        gap: 12px !important;
+        gap: 10px !important;
       }
 
       .caricature-frame {
@@ -1745,7 +1747,7 @@
       }
 
       .quote-block {
-        margin-top: 2px !important;
+        margin: 0 !important;
       }
 
       .quote-english {
@@ -1759,10 +1761,11 @@
         margin-top: 4px !important;
       }
 
-      /* Mobile Page 3 (Events & Lineage): 100% Fits without scrolling or clipping */
+      /* Mobile Page 3 (Events & Lineage): Natural tight cohesive spacing */
       .leaf-right .face-front .page-inner {
-        padding: 6px 10px 4px 10px !important;
-        justify-content: space-between !important;
+        padding: 10px 12px !important;
+        justify-content: center !important;
+        gap: 6px !important;
       }
 
       .invocation-english {
@@ -1786,7 +1789,7 @@
       .side-by-side-wrap {
         flex-direction: column !important;
         gap: 2px !important;
-        margin: 1px 0 !important;
+        margin: 0 !important;
       }
 
       .side-col {
@@ -1829,7 +1832,7 @@
 
       .venue-boundary {
         padding: 3px 8px 3px 8px !important;
-        margin: 2px 0 !important;
+        margin: 0 !important;
         border-radius: 6px !important;
       }
 
@@ -1865,11 +1868,11 @@
         vertical-align: -1px !important;
       }
 
-      /* Mobile Page 4 (Thank You): Clean fit so Front Cover button and all elements are completely visible */
+      /* Mobile Page 4 (Thank You): Cohesive, natural spacing */
       .thankyou-inner {
-        padding: 6px 12px 6px 12px !important;
-        gap: 3px !important;
-        justify-content: space-between !important;
+        padding: 10px 12px !important;
+        gap: 6px !important;
+        justify-content: center !important;
       }
 
       .namaste-box {
@@ -1956,7 +1959,7 @@
 
       .procession-box {
         max-width: 280px !important;
-        margin: -2px auto 0 auto !important;
+        margin: 0 auto !important;
       }
 
       .procession-img {
@@ -2557,7 +2560,7 @@
                   </div>
                   <div class="ty-parents">
                     <div class="ty-parents-line">Mr. G. Kandavel &amp; Mrs. K. Vasanthi</div>
-                    <div class="ty-parents-line">Mr. G. Kumaravel &amp; Mrs. K. Bharathi &amp; Family</div>
+                    <div class="ty-parents-line">Mr. G. Kumaravel &amp; Mrs. K. Bharathi</div>
                   </div>
                   <div class="siblings-names-list">
                     <div class="sibling-item">K. Akash</div>
@@ -2572,7 +2575,8 @@
                 <div class="gratitude-block">
                   <div class="gratitude-heading">With Heartfelt Gratitude</div>
                   <p class="ty-heartfelt">
-                    “Your gracious presence, heartfelt prayers and blessings will make this joyous occasion even more memorable. We look forward to celebrating this beautiful beginning with you.”
+                    “Your gracious presence, heartfelt prayers and blessings will make this joyous occasion even more
+                    memorable. We look forward to celebrating this beautiful beginning with you.”
                   </p>
                 </div>
               </div>
