@@ -1295,106 +1295,24 @@
       line-height: 1.25;
     }
 
-    /* Venue Locations & Google Maps Box (Consistent Side-by-Side Map Cards) */
-    .scan-location-box {
-      position: relative;
+    /* Procession Line Art: 100% Uncut Sacred Temple Procession (Chariot, Band, Horses, Elephant) */
+    .procession-box {
       width: 100%;
-      border: 1.2px solid rgba(212, 175, 55, 0.50);
-      border-radius: 9px;
-      background: rgba(255, 255, 255, 0.92);
-      padding: 10px 10px 8px 10px;
-      margin: 6px 0 6px 0;
-    }
-
-    .scan-header-line {
-      position: absolute;
-      top: -8.5px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #FFFDF7;
-      padding: 0 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 8.5px;
-      font-weight: 800;
-      color: #4A000E;
-      white-space: nowrap;
-      letter-spacing: 0.8px;
-    }
-
-    .scan-cards-row {
+      max-width: 350px;
+      margin: 8px auto 4px auto;
+      padding: 0 4px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 14px;
-    }
-
-    .venue-map-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      background: #FFFDF7;
-      border: 1.2px solid var(--gold-primary);
-      border-radius: 7px;
-      overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-      width: 130px;
-    }
-
-    .venue-map-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.45);
-    }
-
-    .map-card-thumb {
-      width: 130px;
-      height: 58px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .map-card-info {
-      width: 100%;
-      background: #FFFDF7;
-      padding: 4px 6px;
-      text-align: center;
-      border-top: 1px solid rgba(212, 175, 55, 0.3);
-    }
-
-    .map-card-city {
-      font-family: 'Cinzel', serif;
-      font-size: 8.5px;
-      font-weight: 800;
-      color: #4A000E;
-      display: block;
-      letter-spacing: 0.5px;
-    }
-
-    .map-card-place {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--gold-dark);
-      display: block;
-    }
-
-    /* Procession Line Art: Full Uncut Royal Elephant, Musicians & Chariot */
-    .procession-box {
-      width: 100%;
-      max-width: 325px;
-      margin: 6px auto 3px auto;
-      padding: 0 4px;
     }
 
     .procession-img {
       width: 100%;
-      max-height: 82px;
+      max-height: 135px;
       height: auto;
       display: block;
       object-fit: contain;
-      filter: drop-shadow(0 2px 5px rgba(180, 130, 20, 0.22));
+      filter: drop-shadow(0 2px 6px rgba(180, 130, 20, 0.28));
     }
 
     .compliments-footer {
@@ -2212,34 +2130,6 @@
                 <div class="ty-parents">
                   <div class="ty-parents-line">Mr. G. Kandavel &amp; Mrs. K. Vasanthi</div>
                   <div class="ty-parents-line">Mr. G. Kumaravel &amp; Mrs. K. Bharathi &amp; Family</div>
-                </div>
-              </div>
-
-              <!-- Symmetrical Venue Locations & Google Maps (Both Madurai & Chennai) -->
-              <div class="scan-location-box">
-                <div class="scan-header-line">
-                  <span>Venue Locations & Directions</span>
-                </div>
-                <div class="scan-cards-row">
-                  <!-- Madurai Map Card -->
-                  <a href="https://maps.app.goo.gl/MWeFeFqyJtrJmTv77" target="_blank" rel="noopener noreferrer"
-                    class="venue-map-card" title="Open Madurai Directions in Google Maps">
-                    <img src="assets/map_thumb_madurai.png?v=3" alt="Madurai Venue Map" class="map-card-thumb" />
-                    <div class="map-card-info">
-                      <span class="map-card-city">Madurai Venue</span>
-                      <span class="map-card-place">Sri Ram Mahal ↗</span>
-                    </div>
-                  </a>
-
-                  <!-- Chennai Map Card -->
-                  <a href="https://maps.app.goo.gl/UEqebarVW3SBahhA9" target="_blank" rel="noopener noreferrer"
-                    class="venue-map-card" title="Open Chennai Directions in Google Maps">
-                    <img src="assets/map_thumb_chennai.png?v=3" alt="Chennai Venue Map" class="map-card-thumb" />
-                    <div class="map-card-info">
-                      <span class="map-card-city">Chennai Venue</span>
-                      <span class="map-card-place">Kiran Palace ↗</span>
-                    </div>
-                  </a>
                 </div>
               </div>
 
