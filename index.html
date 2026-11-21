@@ -110,13 +110,15 @@
     }
 
     .audio-pill {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 7px;
+      justify-content: center;
       background: rgba(46, 2, 8, 0.88);
       border: 1px solid var(--gold-primary);
-      padding: 6px 14px;
-      border-radius: 25px;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
       cursor: pointer;
       color: var(--gold-light);
       font-family: 'Cinzel', serif;
@@ -125,7 +127,9 @@
       letter-spacing: 1px;
       backdrop-filter: blur(8px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), inset 0 0 6px rgba(212, 175, 55, 0.3);
-      transition: all 0.3s ease;
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+      white-space: nowrap;
     }
 
     .audio-pill:hover {
@@ -134,8 +138,32 @@
     }
 
     .bell-icon {
-      font-size: 14px;
-      display: inline-block;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .audio-pill-label {
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-left: 0;
+      transition: max-width 0.35s ease, opacity 0.3s ease, margin-left 0.3s ease;
+      font-size: 10.5px;
+    }
+
+    .audio-pill.show-text {
+      width: auto;
+      border-radius: 25px;
+      padding: 6px 13px;
+    }
+
+    .audio-pill.show-text .audio-pill-label {
+      max-width: 75px;
+      opacity: 1;
+      margin-left: 6px;
     }
 
     .audio-pill.playing .bell-icon {
@@ -578,8 +606,8 @@
       background-image: url('assets/temple_bg.jpeg?v=2');
       background-size: cover;
       background-position: center center;
-      opacity: 0.10;
-      filter: saturate(0.7) contrast(1.05) brightness(1.05);
+      opacity: 0.45;
+      filter: saturate(0.85) contrast(1.08) brightness(1.02);
       mix-blend-mode: multiply;
       pointer-events: none;
       z-index: 2;
@@ -1548,38 +1576,9 @@
         z-index: 10;
       }
 
-      /* Mobile Tab Bar */
+      /* Mobile Tab Bar Removed */
       .mobile-tab-bar {
-        position: absolute;
-        bottom: 12px;
-        z-index: 60;
-        display: flex;
-        gap: 6px;
-        background: rgba(30, 2, 7, 0.94);
-        border: 1px solid var(--gold-primary);
-        padding: 5px 8px;
-        border-radius: 20px;
-        backdrop-filter: blur(8px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      .mobile-tab-btn {
-        background: transparent;
-        border: none;
-        color: var(--gold-light);
-        font-family: 'Cinzel', serif;
-        font-size: 9px;
-        font-weight: 700;
-        padding: 4px 7px;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .mobile-tab-btn.active {
-        background: var(--gold-primary);
-        color: var(--maroon-deep);
-        font-weight: 800;
+        display: none !important;
       }
 
       .side-by-side-wrap {
@@ -1692,11 +1691,11 @@
       <source src="audio/wedding_music.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- Top Corner Audio Toggle (Bell with Gentle Fade-In) -->
+    <!-- Top Corner Audio Toggle (Bell Icon with Brief Label on Interaction) -->
     <header class="top-controls">
       <button class="audio-pill" id="audioToggleBtn" title="Toggle Wedding Nadaswaram">
         <span class="bell-icon">🔔</span>
-        <span id="audioText">Music</span>
+        <span class="audio-pill-label" id="audioText">Music</span>
       </button>
     </header>
 
@@ -2276,14 +2275,6 @@
       </div>
     </main>
 
-    <!-- Mobile Navigation Tab Bar (Shown on Mobile) -->
-    <nav class="mobile-tab-bar" id="mobileTabBar">
-      <button class="mobile-tab-btn" id="btnTabCover">🎴 Cover</button>
-      <button class="mobile-tab-btn" id="btnTabCaricature">🎨 Couple</button>
-      <button class="mobile-tab-btn" id="btnTabEvents">📅 Events</button>
-      <button class="mobile-tab-btn" id="btnTabThankYou">🙏 Thank You</button>
-    </nav>
-
     <!-- Subtle, Breathing Interaction Cue -->
     <div class="turn-hint-bar" id="hintBar">
       <span class="hint-label" id="hintLabel">◂ Tap right to open invitation ▸</span>
@@ -2403,13 +2394,6 @@
       const leafRight = document.getElementById('leafRight');
       const hintLabel = document.getElementById('hintLabel');
 
-      // Mobile Buttons
-      const mobileTabBar = document.getElementById('mobileTabBar');
-      const btnTabCover = document.getElementById('btnTabCover');
-      const btnTabCaricature = document.getElementById('btnTabCaricature');
-      const btnTabEvents = document.getElementById('btnTabEvents');
-      const btnTabThankYou = document.getElementById('btnTabThankYou');
-
       // In-Page Action Buttons
       const btnBackToEvents = document.getElementById('btnBackToEvents');
       const btnBackToCover = document.getElementById('btnBackToCover');
@@ -2423,8 +2407,6 @@
 
         if (!mobile) {
           // Desktop mode
-          mobileTabBar.style.display = 'none';
-
           if (currentState === 'cover') {
             bookContainer.className = 'book-container';
             leafCover.classList.remove('is-turned');
@@ -2443,26 +2425,19 @@
           }
         } else {
           // Mobile mode
-          mobileTabBar.style.display = 'flex';
-          [btnTabCover, btnTabCaricature, btnTabEvents, btnTabThankYou].forEach(b => b.classList.remove('active'));
-
           bookContainer.className = 'book-container';
 
           if (currentState === 'cover') {
             bookContainer.classList.add('mobile-show-cover');
-            btnTabCover.classList.add('active');
             if (hintLabel) hintLabel.textContent = '◂ Swipe left to read invitation ▸';
           } else if (currentState === 'caricature' || (currentState === 'inside' && mobile)) {
             bookContainer.classList.add('mobile-show-caricature');
-            btnTabCaricature.classList.add('active');
             if (hintLabel) hintLabel.textContent = '◂ Couple Blessing · Next: Events ▸';
           } else if (currentState === 'events') {
             bookContainer.classList.add('mobile-show-events');
-            btnTabEvents.classList.add('active');
             if (hintLabel) hintLabel.textContent = '◂ Events & Venues · Next: Thank You ▸';
           } else if (currentState === 'thankyou') {
             bookContainer.classList.add('mobile-show-thankyou');
-            btnTabThankYou.classList.add('active');
             if (hintLabel) hintLabel.textContent = '◂ Thank You & Directions · Swipe right to return';
           }
         }
@@ -2533,12 +2508,6 @@
           setState('cover');
         });
       }
-
-      // Mobile Tab buttons
-      btnTabCover.addEventListener('click', (e) => { e.stopPropagation(); setState('cover'); });
-      btnTabCaricature.addEventListener('click', (e) => { e.stopPropagation(); setState('caricature'); });
-      btnTabEvents.addEventListener('click', (e) => { e.stopPropagation(); setState('events'); });
-      btnTabThankYou.addEventListener('click', (e) => { e.stopPropagation(); setState('thankyou'); });
 
       // Tap Outer Screen Zones
       document.getElementById('zoneRight').addEventListener('click', () => {
@@ -2677,13 +2646,26 @@
         }, stepTime);
       }
 
+      // Audio text interaction indicator (shows shortly then hides)
+      let audioToastTimer = null;
+      function flashAudioText(text, duration = 2200) {
+        if (audioText) audioText.textContent = text;
+        if (audioBtn) {
+          audioBtn.classList.add('show-text');
+          clearTimeout(audioToastTimer);
+          audioToastTimer = setTimeout(() => {
+            audioBtn.classList.remove('show-text');
+          }, duration);
+        }
+      }
+
       function startMusicWithFade() {
         if (audioStarted) return;
         audio.volume = 0.0;
         audio.play().then(() => {
           audioStarted = true;
           audioBtn.classList.add('playing');
-          audioText.textContent = 'Playing';
+          flashAudioText('Playing', 2200);
           fadeInAudio(0.55, 3200);
         }).catch(() => { });
       }
@@ -2694,13 +2676,13 @@
           audio.play().then(() => {
             audioStarted = true;
             audioBtn.classList.add('playing');
-            audioText.textContent = 'Playing';
+            flashAudioText('Playing', 2200);
             fadeInAudio(0.55, 2000);
           }).catch(console.error);
         } else {
           fadeOutAudio(600);
           audioBtn.classList.remove('playing');
-          audioText.textContent = 'Music';
+          flashAudioText('Muted', 2000);
         }
       }
 
