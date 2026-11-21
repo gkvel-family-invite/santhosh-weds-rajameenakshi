@@ -66,13 +66,14 @@
       background: #180308;
     }
 
-    /* Authentic Temple Background (Visible with Warmth) */
+    /* Authentic Temple Background (Visible with Warmth, Single Authentic Architecture) */
     .temple-backdrop {
       position: absolute;
       inset: 0;
-      background-image: url('assets/temple_bg.jpeg?v=2');
+      background-image: url('assets/temple_bg.jpeg?v=3');
       background-size: cover;
-      background-position: center top;
+      background-position: center center;
+      background-repeat: no-repeat;
       opacity: 0.90;
       filter: saturate(1.05) contrast(1.06) brightness(0.94);
       pointer-events: none;
@@ -317,13 +318,6 @@
 
     /* Dual Spread Mode on Desktop (Sides 2 & 3 Unfolded) */
     @media (min-width: 860px) {
-      .temple-backdrop {
-        background-image: url('assets/temple_bg_desktop.jpg?v=2');
-        background-size: cover;
-        background-position: center center;
-        opacity: 0.92;
-      }
-
       .book-container.mode-inside {
         width: min(94vw, 880px) !important;
       }
