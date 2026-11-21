@@ -740,7 +740,7 @@
       background: transparent !important;
     }
 
-    /* ─── ANIMATED DANGLING TEMPLE BELLS (PHYSICS-BASED PENDULUM) ─── */
+    /* ─── ANIMATED DANGLING TEMPLE BELLS ─── */
     .cover-bells-overlay {
       position: absolute;
       top: 0;
@@ -749,57 +749,6 @@
       height: 100%;
       pointer-events: none;
       z-index: 8;
-    }
-
-    @keyframes bellDangle1 {
-      0% { transform: rotate(-4.5deg); }
-      50% { transform: rotate(4.5deg); }
-      100% { transform: rotate(-4.5deg); }
-    }
-    @keyframes bellDangle2 {
-      0% { transform: rotate(4.2deg); }
-      50% { transform: rotate(-4.2deg); }
-      100% { transform: rotate(4.2deg); }
-    }
-    @keyframes bellDangle3 {
-      0% { transform: rotate(-3.8deg); }
-      50% { transform: rotate(3.8deg); }
-      100% { transform: rotate(-3.8deg); }
-    }
-    @keyframes clapperDangle {
-      0% { transform: rotate(6.5deg); }
-      50% { transform: rotate(-6.5deg); }
-      100% { transform: rotate(6.5deg); }
-    }
-
-    .bell-swing-1 {
-      animation: bellDangle1 3.4s ease-in-out infinite;
-      transform-origin: 0 0;
-    }
-    .bell-swing-2 {
-      animation: bellDangle2 3.9s ease-in-out infinite;
-      transform-origin: 0 0;
-    }
-    .bell-swing-3 {
-      animation: bellDangle3 3.6s ease-in-out infinite;
-      transform-origin: 0 0;
-    }
-    .bell-swing-4 {
-      animation: bellDangle2 4.2s ease-in-out infinite;
-      transform-origin: 0 0;
-    }
-    .bell-swing-5 {
-      animation: bellDangle1 3.7s ease-in-out infinite;
-      transform-origin: 0 0;
-    }
-    .bell-swing-6 {
-      animation: bellDangle3 4.0s ease-in-out infinite;
-      transform-origin: 0 0;
-    }
-
-    .bell-clapper {
-      animation: clapperDangle 3.4s ease-in-out infinite;
-      transform-origin: 0 0;
     }
 
     .cover-mid-section {
@@ -1805,9 +1754,6 @@
                   <stop offset="50%" stop-color="#FFF8E7" />
                   <stop offset="100%" stop-color="#AA7C11" />
                 </linearGradient>
-                <filter id="softBellMask" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="3.5" />
-                </filter>
                 <filter id="bellDropShadow" x="-30%" y="-20%" width="160%" height="160%">
                   <feDropShadow dx="1" dy="3.5" stdDeviation="2.5" flood-color="#3A0812" flood-opacity="0.32" />
                 </filter>
@@ -1815,86 +1761,104 @@
                 <!-- Reusable Temple Bell: origin at (0, 0) top suspension loop -->
                 <g id="templeBell">
                   <!-- Suspension Ring -->
-                  <circle cx="0" cy="2" r="3" fill="none" stroke="url(#chainGoldGrad)" stroke-width="1.8" />
+                  <circle cx="0" cy="2" r="2.8" fill="none" stroke="url(#chainGoldGrad)" stroke-width="1.8" />
                   
                   <!-- Bell Top Cap -->
-                  <path d="M-4,14 C-4,10 -2,6 0,6 C2,6 4,10 4,14 Z" fill="url(#bellGoldGrad)" filter="url(#bellDropShadow)" />
-                  <circle cx="0" cy="8" r="2.2" fill="#FFE57F" />
+                  <path d="M-4,13 C-4,9 -2,5 0,5 C2,5 4,9 4,13 Z" fill="url(#bellGoldGrad)" filter="url(#bellDropShadow)" />
+                  <circle cx="0" cy="7" r="2" fill="#FFE57F" />
                   
                   <!-- Bell Body Flute -->
-                  <path d="M-4,14 C-5,19 -9,23 -13.5,29 C-14.5,30.5 -12.5,32 -10.5,32 L10.5,32 C12.5,32 14.5,30.5 13.5,29 C9,23 5,19 4,14 Z" 
+                  <path d="M-4,13 C-5,18 -9,22 -13.5,28 C-14.5,29.5 -12.5,31 -10.5,31 L10.5,31 C12.5,31 14.5,29.5 13.5,28 C9,22 5,18 4,13 Z" 
                         fill="url(#bellGoldGrad)" filter="url(#bellDropShadow)" />
                   
                   <!-- Bottom Rim & Dark Interior -->
-                  <ellipse cx="0" cy="32" rx="12.5" ry="3.2" fill="url(#bellGoldGrad)" stroke="#7A5205" stroke-width="0.8" />
-                  <ellipse cx="0" cy="32.2" rx="10" ry="2" fill="#2E120A" />
+                  <ellipse cx="0" cy="31" rx="12.5" ry="3.2" fill="url(#bellGoldGrad)" stroke="#7A5205" stroke-width="0.8" />
+                  <ellipse cx="0" cy="31.2" rx="10" ry="2" fill="#2E120A" />
                   
                   <!-- Clapper (Tongue) inside swinging counter to body -->
-                  <g class="bell-clapper">
-                    <line x1="0" y1="26" x2="0" y2="38" stroke="#8A6005" stroke-width="2.2" stroke-linecap="round" />
-                    <circle cx="0" cy="38.5" r="3" fill="url(#chainGoldGrad)" filter="url(#bellDropShadow)" />
-                    <circle cx="-0.8" cy="37.8" r="0.9" fill="#FFFDF5" opacity="0.85" />
+                  <g>
+                    <animateTransform attributeName="transform" type="rotate"
+                      values="5 0 25; -5 0 25; 5 0 25" dur="3.2s" repeatCount="indefinite" />
+                    <line x1="0" y1="25" x2="0" y2="37" stroke="#8A6005" stroke-width="2.2" stroke-linecap="round" />
+                    <circle cx="0" cy="37.5" r="2.8" fill="url(#chainGoldGrad)" filter="url(#bellDropShadow)" />
+                    <circle cx="-0.8" cy="36.8" r="0.8" fill="#FFFDF5" opacity="0.85" />
                   </g>
 
                   <!-- Gold Sheen Highlight on Flute -->
-                  <path d="M-2.5,16 C-3.5,20 -5.5,24 -8.5,28" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.55" fill="none" />
+                  <path d="M-2.5,15 C-3.5,19 -5.5,23 -8.5,27" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.6" fill="none" />
                 </g>
               </defs>
 
-              <!-- Parchment Masks: Blends out static bells on template image -->
-              <ellipse cx="175" cy="195" rx="18" ry="22" fill="#FAF5EA" filter="url(#softBellMask)" />
-              <ellipse cx="120" cy="255" rx="17" ry="22" fill="#FAF5EA" filter="url(#softBellMask)" />
-              <ellipse cx="246" cy="275" rx="17" ry="22" fill="#FAF5EA" filter="url(#softBellMask)" />
-              <ellipse cx="490" cy="275" rx="17" ry="22" fill="#FAF5EA" filter="url(#softBellMask)" />
-              <ellipse cx="616" cy="255" rx="17" ry="22" fill="#FAF5EA" filter="url(#softBellMask)" />
-              <ellipse cx="561" cy="195" rx="18" ry="22" fill="#FAF5EA" filter="url(#softBellMask)" />
-
-              <!-- 6 Dangling Bells with Natural Pendulum Physics Swing -->
-              <!-- Bell 1: Outer Left -->
-              <g transform="translate(175, 48)" class="bell-swing-1">
-                <line x1="0" y1="0" x2="0" y2="128" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
-                <g transform="translate(0, 128)">
-                  <use href="#templeBell" transform="scale(0.98)" />
+              <!-- 6 Dangling Bells with Natural Pendulum Physics Swing (Directly on Arch Bells) -->
+              <!-- Bell 1: Outer Left (Hanging from top garland over arch) -->
+              <g transform="translate(176, 50)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate"
+                    values="-3.5 0 0; 3.5 0 0; -3.5 0 0" dur="3.2s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <g transform="translate(0, 120)">
+                    <use href="#templeBell" />
+                  </g>
                 </g>
               </g>
 
-              <!-- Bell 2: Far Left Lower (near pillar) -->
-              <g transform="translate(120, 190)" class="bell-swing-2">
-                <line x1="0" y1="0" x2="0" y2="46" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
-                <g transform="translate(0, 46)">
-                  <use href="#templeBell" transform="scale(1.05)" />
+              <!-- Bell 2: Inner Arch Left (Hanging from inner arch cusp) -->
+              <g transform="translate(230, 205)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate"
+                    values="3.2 0 0; -3.2 0 0; 3.2 0 0" dur="3.8s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="32" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <g transform="translate(0, 32)">
+                    <use href="#templeBell" transform="scale(0.95)" />
+                  </g>
                 </g>
               </g>
 
-              <!-- Bell 3: Inner Arch Left -->
-              <g transform="translate(246, 230)" class="bell-swing-3">
-                <line x1="0" y1="0" x2="0" y2="30" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
-                <g transform="translate(0, 30)">
-                  <use href="#templeBell" transform="scale(0.96)" />
+              <!-- Bell 3: Left Pillar Low (Hanging near pillar capital) -->
+              <g transform="translate(138, 225)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate"
+                    values="-3 0 0; 3 0 0; -3 0 0" dur="3.5s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="38" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <g transform="translate(0, 38)">
+                    <use href="#templeBell" transform="scale(0.95)" />
+                  </g>
                 </g>
               </g>
 
-              <!-- Bell 4: Inner Arch Right -->
-              <g transform="translate(490, 230)" class="bell-swing-4">
-                <line x1="0" y1="0" x2="0" y2="30" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
-                <g transform="translate(0, 30)">
-                  <use href="#templeBell" transform="scale(0.96)" />
+              <!-- Bell 4: Inner Arch Right (Hanging from inner arch cusp) -->
+              <g transform="translate(506, 205)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate"
+                    values="-3.2 0 0; 3.2 0 0; -3.2 0 0" dur="3.7s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="32" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <g transform="translate(0, 32)">
+                    <use href="#templeBell" transform="scale(0.95)" />
+                  </g>
                 </g>
               </g>
 
-              <!-- Bell 5: Far Right Lower (near pillar) -->
-              <g transform="translate(616, 190)" class="bell-swing-5">
-                <line x1="0" y1="0" x2="0" y2="46" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
-                <g transform="translate(0, 46)">
-                  <use href="#templeBell" transform="scale(1.05)" />
+              <!-- Bell 5: Outer Right Bell (Hanging from top garland over arch) -->
+              <g transform="translate(561, 50)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate"
+                    values="3.5 0 0; -3.5 0 0; 3.5 0 0" dur="3.4s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <g transform="translate(0, 120)">
+                    <use href="#templeBell" />
+                  </g>
                 </g>
               </g>
 
-              <!-- Bell 6: Outer Right -->
-              <g transform="translate(561, 48)" class="bell-swing-6">
-                <line x1="0" y1="0" x2="0" y2="128" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
-                <g transform="translate(0, 128)">
-                  <use href="#templeBell" transform="scale(0.98)" />
+              <!-- Bell 6: Right Pillar Low (Hanging near pillar capital) -->
+              <g transform="translate(599, 225)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate"
+                    values="3 0 0; -3 0 0; 3 0 0" dur="4.1s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="38" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <g transform="translate(0, 38)">
+                    <use href="#templeBell" transform="scale(0.95)" />
+                  </g>
                 </g>
               </g>
             </svg>
