@@ -290,19 +290,23 @@
     }
 
     @keyframes pulseNavNext {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 10px rgba(212, 175, 55, 0.35);
       }
+
       50% {
         box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55), 0 0 22px rgba(212, 175, 55, 0.85);
       }
     }
 
     /* Single page mode adjustments (cover & thank you) */
-    .book-container:not(.mode-inside) ~ .floating-nav-arrow.nav-prev {
+    .book-container:not(.mode-inside)~.floating-nav-arrow.nav-prev {
       left: max(16px, calc(50% - 265px));
     }
-    .book-container:not(.mode-inside) ~ .floating-nav-arrow.nav-next {
+
+    .book-container:not(.mode-inside)~.floating-nav-arrow.nav-next {
       right: max(16px, calc(50% - 265px));
     }
 
@@ -311,13 +315,16 @@
         width: 40px;
         height: 40px;
       }
+
       .floating-nav-arrow svg {
         width: 18px;
         height: 18px;
       }
+
       .floating-nav-arrow.nav-prev {
         left: 10px !important;
       }
+
       .floating-nav-arrow.nav-next {
         right: 10px !important;
       }
@@ -1108,7 +1115,7 @@
     .side-col {
       flex: 1 1 0;
       min-width: 0;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.60);
       border: 1px solid rgba(212, 175, 55, 0.35);
       border-radius: 8px;
       padding: 8px 10px;
@@ -1159,7 +1166,7 @@
     .venue-boundary {
       border: 1.2px solid rgba(212, 175, 55, 0.55);
       border-radius: 9px;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.60);
       padding: 8px 14px 8px 14px;
       margin: 6px 0 5px 0;
       width: 100%;
@@ -1225,7 +1232,7 @@
       align-items: center;
       height: 100%;
       box-sizing: border-box;
-      gap: 0;
+      gap: 25px;
     }
 
     .namaste-box {
@@ -1255,7 +1262,7 @@
     }
 
     .siblings-invite-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.70);
       border: 1.2px solid rgba(212, 175, 55, 0.45);
       border-radius: 9px;
       padding: 6px 14px;
@@ -1336,7 +1343,7 @@
       max-width: 340px;
       border: 1.2px solid rgba(212, 175, 55, 0.50);
       border-radius: 9px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.70);
       padding: 9px 8px 7px 8px;
       margin: 0 auto;
       flex-shrink: 0;
@@ -1419,12 +1426,14 @@
     /* Procession Line Art: 100% Uncut Sacred Temple Procession (Chariot, Band, Horses, Elephant) */
     .procession-box {
       width: 100%;
-      max-width: 380px;
-      margin: -20px auto 0 auto;
-      padding: 0 4px;
+      max-width: 325px;
+      margin: -35px auto 0 auto;
+      padding: 15px 4px;
       flex-shrink: 0;
       display: flex;
       justify-content: center;
+      background: radial-gradient(ellipse at center, rgb(245 231 187 / 80%) 0%, rgba(255, 253, 247, 0.40) 65%, transparent 100%);
+      border-radius: 16px;
     }
 
     .procession-img {
@@ -1707,10 +1716,14 @@
 
       <!-- Floating Royal Navigation Chevrons -->
       <button class="floating-nav-arrow nav-prev" id="navBtnPrev" title="Previous Page" aria-label="Previous Page">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
       </button>
       <button class="floating-nav-arrow nav-next" id="navBtnNext" title="Next Page" aria-label="Next Page">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
       </button>
 
       <!-- ══════════════════════════════════════════════════
@@ -1785,30 +1798,34 @@
                 <g id="templeBell">
                   <!-- Suspension Ring -->
                   <circle cx="0" cy="2" r="2.8" fill="none" stroke="url(#chainGoldGrad)" stroke-width="1.8" />
-                  
+
                   <!-- Bell Top Cap -->
-                  <path d="M-4,13 C-4,9 -2,5 0,5 C2,5 4,9 4,13 Z" fill="url(#bellGoldGrad)" filter="url(#bellDropShadow)" />
+                  <path d="M-4,13 C-4,9 -2,5 0,5 C2,5 4,9 4,13 Z" fill="url(#bellGoldGrad)"
+                    filter="url(#bellDropShadow)" />
                   <circle cx="0" cy="7" r="2" fill="#FFE57F" />
-                  
+
                   <!-- Bell Body Flute -->
-                  <path d="M-4,13 C-5,18 -9,22 -13.5,28 C-14.5,29.5 -12.5,31 -10.5,31 L10.5,31 C12.5,31 14.5,29.5 13.5,28 C9,22 5,18 4,13 Z" 
-                        fill="url(#bellGoldGrad)" filter="url(#bellDropShadow)" />
-                  
+                  <path
+                    d="M-4,13 C-5,18 -9,22 -13.5,28 C-14.5,29.5 -12.5,31 -10.5,31 L10.5,31 C12.5,31 14.5,29.5 13.5,28 C9,22 5,18 4,13 Z"
+                    fill="url(#bellGoldGrad)" filter="url(#bellDropShadow)" />
+
                   <!-- Bottom Rim & Dark Interior -->
-                  <ellipse cx="0" cy="31" rx="12.5" ry="3.2" fill="url(#bellGoldGrad)" stroke="#7A5205" stroke-width="0.8" />
+                  <ellipse cx="0" cy="31" rx="12.5" ry="3.2" fill="url(#bellGoldGrad)" stroke="#7A5205"
+                    stroke-width="0.8" />
                   <ellipse cx="0" cy="31.2" rx="10" ry="2" fill="#2E120A" />
-                  
+
                   <!-- Clapper (Tongue) inside swinging counter to body -->
                   <g>
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="5 0 25; -5 0 25; 5 0 25" dur="3.2s" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" values="5 0 25; -5 0 25; 5 0 25"
+                      dur="3.2s" repeatCount="indefinite" />
                     <line x1="0" y1="25" x2="0" y2="37" stroke="#8A6005" stroke-width="2.2" stroke-linecap="round" />
                     <circle cx="0" cy="37.5" r="2.8" fill="url(#chainGoldGrad)" filter="url(#bellDropShadow)" />
                     <circle cx="-0.8" cy="36.8" r="0.8" fill="#FFFDF5" opacity="0.85" />
                   </g>
 
                   <!-- Gold Sheen Highlight on Flute -->
-                  <path d="M-2.5,15 C-3.5,19 -5.5,23 -8.5,27" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.6" fill="none" />
+                  <path d="M-2.5,15 C-3.5,19 -5.5,23 -8.5,27" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"
+                    opacity="0.6" fill="none" />
                 </g>
               </defs>
 
@@ -1816,9 +1833,10 @@
               <!-- Bell 1: Outer Left (Hanging from top garland over arch) -->
               <g transform="translate(176, 50)">
                 <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="-3.5 0 0; 3.5 0 0; -3.5 0 0" dur="3.2s" repeatCount="indefinite" />
-                  <line x1="0" y1="0" x2="0" y2="120" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <animateTransform attributeName="transform" type="rotate" values="-3.5 0 0; 3.5 0 0; -3.5 0 0"
+                    dur="3.2s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="url(#chainGoldGrad)" stroke-width="1.8"
+                    stroke-dasharray="2,3" />
                   <g transform="translate(0, 120)">
                     <use href="#templeBell" />
                   </g>
@@ -1828,9 +1846,10 @@
               <!-- Bell 2: Inner Arch Left (Hanging from inner arch cusp) -->
               <g transform="translate(230, 205)">
                 <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="3.2 0 0; -3.2 0 0; 3.2 0 0" dur="3.8s" repeatCount="indefinite" />
-                  <line x1="0" y1="0" x2="0" y2="32" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <animateTransform attributeName="transform" type="rotate" values="3.2 0 0; -3.2 0 0; 3.2 0 0"
+                    dur="3.8s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="32" stroke="url(#chainGoldGrad)" stroke-width="1.8"
+                    stroke-dasharray="2,3" />
                   <g transform="translate(0, 32)">
                     <use href="#templeBell" transform="scale(0.95)" />
                   </g>
@@ -1840,9 +1859,10 @@
               <!-- Bell 3: Left Pillar Low (Hanging near pillar capital) -->
               <g transform="translate(138, 225)">
                 <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="-3 0 0; 3 0 0; -3 0 0" dur="3.5s" repeatCount="indefinite" />
-                  <line x1="0" y1="0" x2="0" y2="38" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <animateTransform attributeName="transform" type="rotate" values="-3 0 0; 3 0 0; -3 0 0" dur="3.5s"
+                    repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="38" stroke="url(#chainGoldGrad)" stroke-width="1.8"
+                    stroke-dasharray="2,3" />
                   <g transform="translate(0, 38)">
                     <use href="#templeBell" transform="scale(0.95)" />
                   </g>
@@ -1852,9 +1872,10 @@
               <!-- Bell 4: Inner Arch Right (Hanging from inner arch cusp) -->
               <g transform="translate(506, 205)">
                 <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="-3.2 0 0; 3.2 0 0; -3.2 0 0" dur="3.7s" repeatCount="indefinite" />
-                  <line x1="0" y1="0" x2="0" y2="32" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <animateTransform attributeName="transform" type="rotate" values="-3.2 0 0; 3.2 0 0; -3.2 0 0"
+                    dur="3.7s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="32" stroke="url(#chainGoldGrad)" stroke-width="1.8"
+                    stroke-dasharray="2,3" />
                   <g transform="translate(0, 32)">
                     <use href="#templeBell" transform="scale(0.95)" />
                   </g>
@@ -1864,9 +1885,10 @@
               <!-- Bell 5: Outer Right Bell (Hanging from top garland over arch) -->
               <g transform="translate(561, 50)">
                 <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="3.5 0 0; -3.5 0 0; 3.5 0 0" dur="3.4s" repeatCount="indefinite" />
-                  <line x1="0" y1="0" x2="0" y2="120" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <animateTransform attributeName="transform" type="rotate" values="3.5 0 0; -3.5 0 0; 3.5 0 0"
+                    dur="3.4s" repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="url(#chainGoldGrad)" stroke-width="1.8"
+                    stroke-dasharray="2,3" />
                   <g transform="translate(0, 120)">
                     <use href="#templeBell" />
                   </g>
@@ -1876,9 +1898,10 @@
               <!-- Bell 6: Right Pillar Low (Hanging near pillar capital) -->
               <g transform="translate(599, 225)">
                 <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="3 0 0; -3 0 0; 3 0 0" dur="4.1s" repeatCount="indefinite" />
-                  <line x1="0" y1="0" x2="0" y2="38" stroke="url(#chainGoldGrad)" stroke-width="1.8" stroke-dasharray="2,3" />
+                  <animateTransform attributeName="transform" type="rotate" values="3 0 0; -3 0 0; 3 0 0" dur="4.1s"
+                    repeatCount="indefinite" />
+                  <line x1="0" y1="0" x2="0" y2="38" stroke="url(#chainGoldGrad)" stroke-width="1.8"
+                    stroke-dasharray="2,3" />
                   <g transform="translate(0, 38)">
                     <use href="#templeBell" transform="scale(0.95)" />
                   </g>
@@ -2258,13 +2281,12 @@
 
               <!-- Authentic Procession Line Art: Chariot, Music Band, Elephant (Comfortable clearance, zero overlap) -->
               <div class="procession-box">
-                <img src="assets/art_procession_gold.png?v=3"
+                <img src="assets/art_procession_gold_short.png"
                   alt="Traditional Wedding Procession — Chariot, Music Band & Elephant" class="procession-img" />
               </div>
 
               <!-- Navigation Back Action Row -->
               <div class="thankyou-nav-row">
-                <button class="btn-return" id="btnBackToEvents">◂ Back to Invitation</button>
                 <button class="btn-return" id="btnBackToCover" style="background: rgba(74, 0, 14, 0.15);">🎴 Front
                   Cover</button>
               </div>
