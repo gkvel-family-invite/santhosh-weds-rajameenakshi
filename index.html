@@ -1391,8 +1391,8 @@
     /* Procession Line Art: 100% Uncut Sacred Temple Procession (Chariot, Band, Horses, Elephant) */
     .procession-box {
       width: 100%;
-      max-width: 350px;
-      margin: 0 auto;
+      max-width: 380px;
+      margin: -20px auto 0 auto;
       padding: 0 4px;
       flex-shrink: 0;
       display: flex;
@@ -1401,11 +1401,13 @@
 
     .procession-img {
       width: 100%;
-      max-height: 110px;
+      max-height: 125px;
       height: auto;
       display: block;
       object-fit: contain;
       filter: drop-shadow(0 2px 6px rgba(180, 130, 20, 0.28));
+      transform: scale(1.05);
+      transform-origin: center center;
     }
 
     .compliments-footer {
