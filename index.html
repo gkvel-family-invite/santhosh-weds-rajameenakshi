@@ -72,7 +72,7 @@
       inset: 0;
       background-image: url('assets/temple_bg.jpeg?v=2');
       background-size: cover;
-      background-position: center center;
+      background-position: center top;
       opacity: 0.90;
       filter: saturate(1.05) contrast(1.06) brightness(0.94);
       pointer-events: none;
@@ -308,7 +308,8 @@
     .book-container {
       position: relative;
       width: min(92vw, 440px);
-      height: min(88vh, 730px);
+      height: min(calc(100vh - 84px), min(88vh, 725px));
+      max-height: 725px;
       transform-style: preserve-3d;
       transition: width 0.75s cubic-bezier(0.25, 1, 0.35, 1), transform 0.75s ease;
       z-index: 45;
@@ -316,6 +317,13 @@
 
     /* Dual Spread Mode on Desktop (Sides 2 & 3 Unfolded) */
     @media (min-width: 860px) {
+      .temple-backdrop {
+        background-image: url('assets/temple_bg_desktop.jpg?v=2');
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.92;
+      }
+
       .book-container.mode-inside {
         width: min(94vw, 880px) !important;
       }
@@ -1372,16 +1380,17 @@
       display: block;
     }
 
-    /* Procession Scripture Line Art (Clean Spacing, Elephant Never Touches Box) */
+    /* Procession Line Art: Full Uncut Royal Elephant, Musicians & Chariot */
     .procession-box {
       width: 100%;
-      max-width: 310px;
-      margin: 8px auto 4px auto;
+      max-width: 325px;
+      margin: 6px auto 3px auto;
       padding: 0 4px;
     }
 
     .procession-img {
       width: 100%;
+      max-height: 82px;
       height: auto;
       display: block;
       object-fit: contain;
@@ -1472,7 +1481,8 @@
     @media (max-width: 859px) {
       .book-container {
         width: min(92vw, 420px) !important;
-        height: min(88vh, 720px);
+        height: min(calc(100vh - 84px), calc(min(92vw, 420px) * 1.62));
+        max-height: 700px;
       }
 
       .book-leaf {
