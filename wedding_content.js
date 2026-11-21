@@ -31,7 +31,7 @@ window.WEDDING_DATA = {
     elders: "Mr. G. Kumaravel & Mrs. K. Bharathi",
     inviteText: "warmly invite you and your family to share in our happiness and shower your blessings upon our beloved son",
     joiningPhrase: "joining in sacred matrimony with",
-    journeyText: "as they begin their sacred journey together."
+    journeyText: "as they begin their journey together."
   },
 
   // ─── THE COUPLE ───

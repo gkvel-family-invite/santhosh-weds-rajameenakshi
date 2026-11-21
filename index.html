@@ -214,7 +214,7 @@
 
     /* Outer Click Zones (Screen Halves for Effortless Flipping) */
     .turn-zone {
-      position: absolute;
+      position: fixed;
       top: 0;
       bottom: 0;
       width: 50vw;
@@ -315,14 +315,14 @@
 
     @media (max-width: 860px) {
       .floating-nav-arrow {
-        width: 34px;
-        height: 34px;
-        opacity: 0.38;
-        background: rgba(45, 10, 15, 0.25) !important;
-        border: 1px solid rgba(212, 175, 55, 0.4) !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
-        backdrop-filter: blur(2px) !important;
-        -webkit-backdrop-filter: blur(2px) !important;
+        width: 40px;
+        height: 40px;
+        opacity: 0.42;
+        background: rgba(45, 10, 15, 0.32) !important;
+        border: 1px solid rgba(212, 175, 55, 0.45) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+        backdrop-filter: blur(3px) !important;
+        -webkit-backdrop-filter: blur(3px) !important;
         animation: none !important;
       }
 
@@ -333,17 +333,17 @@
       }
 
       .floating-nav-arrow svg {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
         stroke-width: 2.2;
       }
 
       .floating-nav-arrow.nav-prev {
-        left: 4px !important;
+        left: 6px !important;
       }
 
       .floating-nav-arrow.nav-next {
-        right: 4px !important;
+        right: 6px !important;
       }
     }
 
@@ -2313,7 +2313,7 @@
                     D/o Mr. T. Sivanantha Saraswathi &amp; Mrs. S. Ambika Rani
                   </div>
                   <div class="cover-journey-line" id="coverJourneyLine">
-                    as they begin their sacred journey together.
+                    as they begin their journey together.
                   </div>
                 </div>
               </div>
@@ -2328,7 +2328,7 @@
                       target="_blank" rel="noopener noreferrer" class="cal-icon-btn"
                       title="Add Muhurtham to Google Calendar">📅</a>
                   </div>
-                  <div class="cover-date-sub">between 9:00 AM – 10:30 AM at Sriram Mahal, Madurai</div>
+                  <div class="cover-date-sub">between 9:00 AM – 10:30 AM at Sri Ram Mahal, Madurai</div>
                 </div>
 
                 <div class="cover-date-item">
@@ -2498,11 +2498,11 @@
                 <legend class="boundary-legend">நிச்சயதார்த்தம் & முகூர்த்தம்</legend>
                 <div class="events-details">
                   <div class="ev-row">
-                    <div class="ev-badge">1. நிச்சயதார்த்தம் (Engagement)</div>
+                    <div class="ev-badge">1. Engagement</div>
                     <div class="ev-datetime">Wed, 27th Jan 2027 | 6:30 PM – 7:30 PM</div>
                   </div>
                   <div class="ev-row">
-                    <div class="ev-badge">2. திருமண நன்னாள் (Muhurtham)</div>
+                    <div class="ev-badge">2. Muhurtham</div>
                     <div class="ev-datetime">Thu, 28th Jan 2027 | 9:00 AM – 10:30 AM (Meena Lagnam)</div>
                   </div>
                   <div class="ev-venue-name">
@@ -2525,7 +2525,7 @@
                 <legend class="boundary-legend">திருமண வரவேற்பு</legend>
                 <div class="events-details">
                   <div class="ev-row">
-                    <div class="ev-badge">3. திருமண வரவேற்பு (Grand Reception)</div>
+                    <div class="ev-badge">3. Grand Reception</div>
                     <div class="ev-datetime">Saturday, 30th January 2027 | 6:30 PM Onwards</div>
                   </div>
                   <div class="ev-venue-name">
@@ -2670,7 +2670,7 @@
   </div>
 
   <!-- Load Content Template Configuration -->
-  <script src="wedding_content.js"></script>
+  <script src="wedding_content.js?v=2"></script>
 
   <!-- JavaScript Engine: Content Mapping, 4-Sided Bi-Fold Transitions & Canvas Jasmine Buds -->
   <script>
@@ -2922,23 +2922,37 @@
       }
 
       // Direct Card Tap / Click Navigation (Cover, Pages, & Hint Bar)
-      leafCover.addEventListener('click', (e) => {
-        if (e.target.closest('a, button, input, .cal-icon-btn, .venue-map-card')) return;
-        if (currentState === 'cover') {
-          goNext();
-        } else if (currentState === 'inside' || currentState === 'caricature') {
-          goPrev();
+      function handlePageTap(e) {
+        if (e.target.closest('a, button, input, .cal-icon-btn, .venue-map-card, .audio-pill, .btn-page-nav')) return;
+        const tapX = e.clientX;
+        if (isMobile()) {
+          if (currentState === 'cover') {
+            goNext();
+          } else if (currentState === 'thankyou') {
+            goPrev();
+          } else {
+            if (tapX > window.innerWidth / 2) {
+              goNext();
+            } else {
+              goPrev();
+            }
+          }
+        } else {
+          if (currentState === 'cover') {
+            goNext();
+          } else if (currentState === 'inside') {
+            if (tapX > window.innerWidth / 2) {
+              goNext();
+            } else {
+              goPrev();
+            }
+          } else if (currentState === 'thankyou') {
+            goPrev();
+          }
         }
-      });
+      }
 
-      leafRight.addEventListener('click', (e) => {
-        if (e.target.closest('a, button, input, .cal-icon-btn, .venue-map-card')) return;
-        if (currentState === 'inside' || currentState === 'events') {
-          goNext();
-        } else if (currentState === 'thankyou') {
-          goPrev();
-        }
-      });
+      bookContainer.addEventListener('click', handlePageTap);
 
       const hintBar = document.getElementById('hintBar');
       if (hintBar) {
