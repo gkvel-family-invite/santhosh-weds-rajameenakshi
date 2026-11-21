@@ -238,18 +238,19 @@
       width: 46px;
       height: 46px;
       border-radius: 50%;
-      background: rgba(45, 10, 15, 0.90);
-      border: 1.5px solid var(--gold-primary);
+      background: rgba(45, 10, 15, 0.50);
+      border: 1.2px solid rgba(212, 175, 55, 0.65);
       color: #FFF8E7;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 90;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 12px rgba(212, 175, 55, 0.4);
+      opacity: 0.65;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
       transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       user-select: none;
       -webkit-tap-highlight-color: transparent;
       outline: none;
@@ -267,10 +268,11 @@
     }
 
     .floating-nav-arrow:hover {
-      background: rgba(74, 0, 14, 0.98);
+      background: rgba(74, 0, 14, 0.88);
       border-color: #FFF2B2;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55), 0 0 20px rgba(212, 175, 55, 0.75);
-      transform: translateY(-50%) scale(1.14);
+      opacity: 0.95;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(212, 175, 55, 0.65);
+      transform: translateY(-50%) scale(1.1);
     }
 
     .floating-nav-arrow:hover svg {
@@ -294,11 +296,11 @@
 
       0%,
       100% {
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 10px rgba(212, 175, 55, 0.35);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 8px rgba(212, 175, 55, 0.25);
       }
 
       50% {
-        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55), 0 0 22px rgba(212, 175, 55, 0.85);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), 0 0 16px rgba(212, 175, 55, 0.6);
       }
     }
 
@@ -313,21 +315,35 @@
 
     @media (max-width: 860px) {
       .floating-nav-arrow {
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
+        opacity: 0.38;
+        background: rgba(45, 10, 15, 0.25) !important;
+        border: 1px solid rgba(212, 175, 55, 0.4) !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+        backdrop-filter: blur(2px) !important;
+        -webkit-backdrop-filter: blur(2px) !important;
+        animation: none !important;
+      }
+
+      .floating-nav-arrow:active,
+      .floating-nav-arrow:hover {
+        opacity: 0.95 !important;
+        background: rgba(74, 0, 14, 0.85) !important;
       }
 
       .floating-nav-arrow svg {
-        width: 18px;
-        height: 18px;
+        width: 15px;
+        height: 15px;
+        stroke-width: 2.2;
       }
 
       .floating-nav-arrow.nav-prev {
-        left: 10px !important;
+        left: 4px !important;
       }
 
       .floating-nav-arrow.nav-next {
-        right: 10px !important;
+        right: 4px !important;
       }
     }
 
